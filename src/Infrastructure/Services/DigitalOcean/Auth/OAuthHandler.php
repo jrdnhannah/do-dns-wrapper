@@ -2,7 +2,7 @@
 
 namespace Jrdn\DoApiWrapper\Infrastructure\Services\DigitalOcean\Auth;
 
-use League\OAuth2\Client\Provider\ResourceOwnerInterface;
+use League\OAuth2\Client\Token\AccessToken;
 
 /**
  * Class DigitalOceanOAuthHandler
@@ -11,5 +11,9 @@ use League\OAuth2\Client\Provider\ResourceOwnerInterface;
  */
 interface OAuthHandler
 {
-    public function authorise(string $code): ResourceOwnerInterface;
+    /**
+     * @param string $code
+     * @return AccessToken
+     */
+    public function authorise(string $code): AccessToken;
 }

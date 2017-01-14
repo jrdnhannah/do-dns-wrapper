@@ -4,6 +4,7 @@ namespace Jrdn\DoApiWrapper\Infrastructure\Services\DigitalOcean\Auth;
 
 use ChrisHemmings\OAuth2\Client\Provider\DigitalOcean;
 use League\OAuth2\Client\Provider\ResourceOwnerInterface;
+use League\OAuth2\Client\Token\AccessToken;
 
 /**
  * Class DigitalOceanOAuthHandler
@@ -25,10 +26,12 @@ final class DigitalOceanOAuthHandler implements OAuthHandler
         $this->provider = $provider;
     }
 
-    public function authorise(string $code) : ResourceOwnerInterface
+    /**
+     * @param string $code
+     * @return AccessToken
+     */
+    public function authorise(string $code) : AccessToken
     {
-        $token = $this->provider->getAccessToken('authorization_code', ['code' => $code]);
-
-        return $this->provider->getResourceOwner($token);
+        return $this->provider->getAccessToken('authorization_code', ['code' => $code]);
     }
 }

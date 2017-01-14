@@ -2,6 +2,7 @@
 
 namespace Jrdn\DoApiWrapper\Laravel\Http\Controllers\OAuth;
 
+use ChrisHemmings\OAuth2\Client\Provider\DigitalOceanResourceOwner;
 use Illuminate\Contracts\View\View;
 use Jrdn\DoApiWrapper\Infrastructure\Services\DigitalOcean\Auth\OAuthHandler;
 use Jrdn\DoApiWrapper\Laravel\Http\Controllers\Controller;
@@ -49,16 +50,9 @@ final class DigitalOceanOAuth2Controller extends Controller
             // fail
         }
 
-        try {
-            $user = $this->handler->authorise($request->query->get('code'));
+        $token = $this->handler->authorise($request->query->get('code'));
 
-            dd($user);
-        } catch (IdentityProviderException $e) {
-            print($e->getMessage()."\n");
-            dd($e->getResponseBody());
-        } catch (Exception $e) {
-            dd($e);
-        }
+        dd($token);
 
         return response('hello');
         //return redirect()->route();
