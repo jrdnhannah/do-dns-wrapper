@@ -28,7 +28,7 @@ final class DigitalOceanOAuthHandler implements OAuthHandler
     public function authorise(string $code) : ResourceOwnerInterface
     {
         $token = $this->provider->getAccessToken('authorization_code', ['code' => $code]);
-
+        dd($token);
         return $this->provider->getResourceOwner($token);
     }
 }
