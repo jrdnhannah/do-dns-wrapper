@@ -53,7 +53,7 @@ final class DigitalOceanOAuth2Controller extends Controller
 
             var_dump($user);
         } catch (Exception $e) {
-
+            var_dump($e);
         }
 
         return response('hello');
