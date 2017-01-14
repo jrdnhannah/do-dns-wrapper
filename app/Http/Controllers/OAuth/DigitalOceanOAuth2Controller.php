@@ -54,7 +54,7 @@ final class DigitalOceanOAuth2Controller extends Controller
 
             dd($user);
         } catch (IdentityProviderException $e) {
-            dd($e->getMessage());
+            print($e->getMessage()."\n");
             dd($e->getResponseBody());
         } catch (Exception $e) {
             dd($e);
