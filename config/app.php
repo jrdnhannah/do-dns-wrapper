@@ -169,6 +169,7 @@ return [
 
         \Barryvdh\Debugbar\ServiceProvider::class,
         \Fideloper\Proxy\TrustedProxyServiceProvider::class,
+        \SmoothPhp\LaravelAdapter\ServiceProvider::class,
 
         /*
          * Application Service Providers...

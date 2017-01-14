@@ -36,7 +36,10 @@ final class DigitalOceanOAuth2Controller extends Controller
         $this->handler = $handler;
     }
 
-    public function requestAuthorisation()
+    /**
+     * @return Response
+     */
+    public function requestAuthorisation() : Response
     {
         return redirect()->to($this->provider->getAuthorizationUrl());
     }

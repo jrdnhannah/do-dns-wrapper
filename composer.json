@@ -11,7 +11,8 @@
         "guzzlehttp/guzzle": "^6.0",
         "roave/security-advisories": "dev-master",
         "chrishemmings/oauth2-digitalocean": "dev-master",
-        "fideloper/proxy": "^3.2"
+        "fideloper/proxy": "^3.2",
+        "smoothphp/cqrs-es-framework-laravel": "^3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
