@@ -35,8 +35,7 @@ final class DigitalOceanOAuth2Controller extends Controller
 
     public function requestAuthorisation()
     {
-        echo 'auth url: ' . $this->provider->getAuthorizationUrl();
-        return $this->provider->getAuthorizationUrl();
+        return redirect()->to($this->provider->getAuthorizationUrl());
     }
 
     /**
