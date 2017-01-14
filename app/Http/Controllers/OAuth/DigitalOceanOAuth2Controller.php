@@ -51,9 +51,9 @@ final class DigitalOceanOAuth2Controller extends Controller
         try {
             $user = $this->handler->authorise($request->query->get('code'));
 
-            var_dump($user);
+            dd($user);
         } catch (Exception $e) {
-            var_dump($e);
+            dd($e);
         }
 
         return response('hello');
