@@ -1,0 +1,7 @@
+/node_modules
+/public/storage
+/vendor
+/.idea
+/_ide_helper.php
+/server.php
+.env
