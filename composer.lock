@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "56fd38c27a08bea69a3af35b063f2079",
+    "content-hash": "00c4e79466a5655c91016c46ab4ff43d",
     "packages": [
         {
             "name": "chrishemmings/oauth2-digitalocean",
@@ -1713,16 +1713,16 @@
         },
         {
             "name": "smoothphp/cqrs-es-framework-laravel",
-            "version": "v3.0.0",
+            "version": "dev-fix/check-event-store-enabled",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SmoothPhp/CQRS-ES-Framework-Laravel.git",
-                "reference": "37f60ae63d0671d26bb5bca6e1a3b338eec0bd8d"
+                "reference": "23e64d30ffcb2e579aaf93f53977089d0f17cb76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SmoothPhp/CQRS-ES-Framework-Laravel/zipball/37f60ae63d0671d26bb5bca6e1a3b338eec0bd8d",
-                "reference": "37f60ae63d0671d26bb5bca6e1a3b338eec0bd8d",
+                "url": "https://api.github.com/repos/SmoothPhp/CQRS-ES-Framework-Laravel/zipball/23e64d30ffcb2e579aaf93f53977089d0f17cb76",
+                "reference": "23e64d30ffcb2e579aaf93f53977089d0f17cb76",
                 "shasum": ""
             },
             "require": {
@@ -1769,7 +1769,7 @@
                 "event sourcing",
                 "laravel"
             ],
-            "time": "2016-12-13T16:51:08+00:00"
+            "time": "2017-01-14 19:33:44"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4421,7 +4421,8 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "roave/security-advisories": 20,
-        "chrishemmings/oauth2-digitalocean": 20
+        "chrishemmings/oauth2-digitalocean": 20,
+        "smoothphp/cqrs-es-framework-laravel": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
