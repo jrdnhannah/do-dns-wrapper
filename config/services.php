@@ -20,7 +20,9 @@ return [
     ],
 
     'digital_ocean' => [
-        'client_id' => env('DIGITAL_OCEAN_CLIENT_ID'),
-        'secret'    => env('DIGITAL_OCEAN_CLIENT_SECRET'),
+        'client_id'                 => env('DIGITAL_OCEAN_CLIENT_ID'),
+        'secret'                    => env('DIGITAL_OCEAN_CLIENT_SECRET'),
+
+        'current_authentication'    => env('DIGITAL_OCEAAN_AUTH_OVERRIDE', null),
     ],
 ];

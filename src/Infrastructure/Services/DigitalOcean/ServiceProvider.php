@@ -5,6 +5,7 @@ namespace Jrdn\DoApiWrapper\Infrastructure\Services\DigitalOcean;
 use ChrisHemmings\OAuth2\Client\Provider\DigitalOcean;
 use DigitalOceanV2\Adapter\GuzzleHttpAdapter;
 use DigitalOceanV2\DigitalOceanV2;
+use Jrdn\DoApiWrapper\Exception\NoAuthenticationProvided;
 use Jrdn\DoApiWrapper\Infrastructure\Services\DigitalOcean\Auth\OAuthHandler;
 
 /**
@@ -19,6 +20,7 @@ final class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
     /**
      * @return void
+     * @throws \Jrdn\DoApiWrapper\Exception\NoAuthenticationProvided
      */
     public function boot() : void
     {
@@ -31,6 +33,10 @@ final class ServiceProvider extends \Illuminate\Support\ServiceProvider
         });
 
         $this->app->singleton(DigitalOceanV2::class, function () {
+            if (null === config('services.digital_ocean.current_authentication')) {
+                throw new NoAuthenticationProvided;
+            }
+
             return new DigitalOceanV2(new GuzzleHttpAdapter(config('services.digital_ocean.secret')));
         });
 
@@ -44,6 +50,7 @@ final class ServiceProvider extends \Illuminate\Support\ServiceProvider
     {
         return [
             DigitalOcean::class,
+            DigitalOceanV2::class,
             OAuthHandler::class,
         ];
     }
