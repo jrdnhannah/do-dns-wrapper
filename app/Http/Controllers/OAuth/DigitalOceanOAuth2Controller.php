@@ -4,6 +4,7 @@ namespace Jrdn\DoApiWrapper\Laravel\Http\Controllers\OAuth;
 
 use ChrisHemmings\OAuth2\Client\Provider\DigitalOceanResourceOwner;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Debug\Dumper;
 use Jrdn\DoApiWrapper\Infrastructure\Services\DigitalOcean\Auth\OAuthHandler;
 use Jrdn\DoApiWrapper\Laravel\Http\Controllers\Controller;
 use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
@@ -51,6 +52,11 @@ final class DigitalOceanOAuth2Controller extends Controller
         }
 
         $token = $this->handler->authorise($request->query->get('code'));
+
+        (new Dumper())->dump($token);
+
+        $user = $this->handler->getResourceOwner($token);
+        (new Dumper())->dump($user);
 
         dd($token);
 

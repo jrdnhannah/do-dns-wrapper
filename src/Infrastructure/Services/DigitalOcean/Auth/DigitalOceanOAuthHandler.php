@@ -34,4 +34,13 @@ final class DigitalOceanOAuthHandler implements OAuthHandler
     {
         return $this->provider->getAccessToken('authorization_code', ['code' => $code]);
     }
+
+    /**
+     * @param AccessToken $token
+     * @return ResourceOwnerInterface
+     */
+    public function getResourceOwner(AccessToken $token) : ResourceOwnerInterface
+    {
+        return $this->provider->getResourceOwner($token);
+    }
 }
