@@ -10,7 +10,7 @@
         "toin0u/digitalocean-v2": "^2.0",
         "guzzlehttp/guzzle": "^6.0",
         "roave/security-advisories": "dev-master",
-        "chrishemmings/oauth2-digitalocean": "^1.0"
+        "chrishemmings/oauth2-digitalocean": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -34,6 +34,12 @@
             "Jrdn\\DoApiWrapper\\Tests\\": "tests/"
         }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:jrdnhannah/oauth2-digitalocean"
+        }
+    ],
     "scripts": {
         "post-root-package-install": [
             "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
@@ -52,5 +58,7 @@
     },
     "config": {
         "preferred-install": "dist"
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
