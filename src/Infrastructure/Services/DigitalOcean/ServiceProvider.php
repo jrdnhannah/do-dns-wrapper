@@ -5,6 +5,7 @@ namespace Jrdn\DoApiWrapper\Infrastructure\Services\DigitalOcean;
 use ChrisHemmings\OAuth2\Client\Provider\DigitalOcean;
 use DigitalOceanV2\Adapter\GuzzleHttpAdapter;
 use DigitalOceanV2\DigitalOceanV2;
+use Jrdn\DoApiWrapper\Infrastructure\Services\DigitalOcean\Auth\OAuthHandler;
 
 /**
  * Class ServiceProvider
@@ -25,13 +26,15 @@ final class ServiceProvider extends \Illuminate\Support\ServiceProvider
             return new DigitalOcean([
                 'clientId'      => config('services.digital_ocean.client_id'),
                 'clientSecret'  => config('services.digital_ocean.secret'),
-                'redirectUri'   => route('')
+                'redirectUri'   => route('oauth.authorise')
             ]);
         });
 
         $this->app->singleton(DigitalOceanV2::class, function () {
             return new DigitalOceanV2(new GuzzleHttpAdapter(config('services.digital_ocean.secret')));
         });
+
+        $this->app->bind(OAuthHandler::class, Auth\DigitalOceanOAuthHandler::class);
     }
 
     /**
@@ -41,6 +44,7 @@ final class ServiceProvider extends \Illuminate\Support\ServiceProvider
     {
         return [
             DigitalOcean::class,
+            OAuthHandler::class,
         ];
     }
 }

@@ -55,7 +55,7 @@ final class DigitalOceanOAuth2Controller extends Controller
 
         }
 
-
-        return redirect()->route('...');
+        return response('hello');
+        //return redirect()->route();
     }
 }
