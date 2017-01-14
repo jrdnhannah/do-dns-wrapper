@@ -5,6 +5,7 @@ namespace Jrdn\DoApiWrapper\Laravel\Http\Controllers\OAuth;
 use Illuminate\Contracts\View\View;
 use Jrdn\DoApiWrapper\Infrastructure\Services\DigitalOcean\Auth\OAuthHandler;
 use Jrdn\DoApiWrapper\Laravel\Http\Controllers\Controller;
+use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
 use Symfony\Component\HttpFoundation\Response;
 use ChrisHemmings\OAuth2\Client\Provider\DigitalOcean as DigitalOceanProvider;
 use Exception;
@@ -52,6 +53,8 @@ final class DigitalOceanOAuth2Controller extends Controller
             $user = $this->handler->authorise($request->query->get('code'));
 
             dd($user);
+        } catch (IdentityProviderException $e) {
+            dd($e->getMessage());
         } catch (Exception $e) {
             dd($e);
         }
