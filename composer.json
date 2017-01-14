@@ -10,7 +10,8 @@
         "toin0u/digitalocean-v2": "^2.0",
         "guzzlehttp/guzzle": "^6.0",
         "roave/security-advisories": "dev-master",
-        "chrishemmings/oauth2-digitalocean": "dev-master"
+        "chrishemmings/oauth2-digitalocean": "dev-master",
+        "fideloper/proxy": "^3.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

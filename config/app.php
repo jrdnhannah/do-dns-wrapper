@@ -168,6 +168,7 @@ return [
          */
 
         \Barryvdh\Debugbar\ServiceProvider::class,
+        \Fideloper\Proxy\TrustedProxyServiceProvider::class,
 
         /*
          * Application Service Providers...
