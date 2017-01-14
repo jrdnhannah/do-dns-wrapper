@@ -23,7 +23,7 @@ final class ServiceProvider extends \Illuminate\Support\ServiceProvider
     public function boot() : void
     {
         $this->app->singleton(DigitalOcean::class, function () {
-            return new DigitalOcean([
+            return new Auth\Provider([
                 'clientId'      => config('services.digital_ocean.client_id'),
                 'clientSecret'  => config('services.digital_ocean.secret'),
                 'redirectUri'   => route('oauth.authorise')
