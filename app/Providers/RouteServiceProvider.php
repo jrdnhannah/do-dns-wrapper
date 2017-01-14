@@ -2,6 +2,7 @@
 
 namespace Jrdn\DoApiWrapper\Laravel\Providers;
 
+use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -14,66 +15,27 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'Jrdn\DoApiWrapper\Laravel\Http\Controllers';
+    protected $namespace    = 'Jrdn\DoApiWrapper\Laravel\Http\Controllers';
 
     /**
-     * Define your route model bindings, pattern filters, etc.
-     *
-     * @return void
+     * @var string[]
      */
-    public function boot()
-    {
-        //
-
-        parent::boot();
-    }
+    private $routingFiles   = [
+        'oauth',
+    ];
 
     /**
      * Define the routes for the application.
      *
      * @return void
      */
-    public function map()
+    public function map(Router $router)
     {
-        $this->mapApiRoutes();
-
-        $this->mapWebRoutes();
-
-        //
-    }
-
-    /**
-     * Define the "web" routes for the application.
-     *
-     * These routes all receive session state, CSRF protection, etc.
-     *
-     * @return void
-     */
-    protected function mapWebRoutes()
-    {
-        Route::group([
-            'middleware' => 'web',
-            'namespace' => $this->namespace,
-        ], function ($router) {
-            require app_path('Http/Routes/web.php');
-        });
-    }
-
-    /**
-     * Define the "api" routes for the application.
-     *
-     * These routes are typically stateless.
-     *
-     * @return void
-     */
-    protected function mapApiRoutes()
-    {
-        Route::group([
-            'middleware' => 'api',
-            'namespace' => $this->namespace,
-            'prefix' => 'api',
-        ], function ($router) {
-            require app_path('Http/Routes/api.php');
-        });
+        $router->group(['namespace' => $this->namespace], function (Router $router) {
+                foreach ($this->routingFiles as $routeFile) {
+                    require app_path("Http/Routes/{$routeFile}.php");
+                }
+            }
+        );
     }
 }
