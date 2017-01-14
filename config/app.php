@@ -176,6 +176,8 @@ return [
         Jrdn\DoApiWrapper\Laravel\Providers\AuthServiceProvider::class,
         Jrdn\DoApiWrapper\Laravel\Providers\RouteServiceProvider::class,
 
+        \Jrdn\DoApiWrapper\Infrastructure\Services\DigitalOcean\ServiceProvider::class,
+
     ],
 
     /*

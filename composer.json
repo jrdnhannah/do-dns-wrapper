@@ -9,7 +9,8 @@
         "graham-campbell/digitalocean": "^3.2",
         "toin0u/digitalocean-v2": "^2.0",
         "guzzlehttp/guzzle": "^6.0",
-        "roave/security-advisories": "dev-master"
+        "roave/security-advisories": "dev-master",
+        "chrishemmings/oauth2-digitalocean": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

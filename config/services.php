@@ -19,20 +19,8 @@ return [
         'secret' => env('MAILGUN_SECRET'),
     ],
 
-    'ses' => [
-        'key' => env('SES_KEY'),
-        'secret' => env('SES_SECRET'),
-        'region' => 'us-east-1',
+    'digital_ocean' => [
+        'client_id' => env('DIGITAL_OCEAN_CLIENT_ID'),
+        'secret'    => env('DIGITAL_OCEAN_CLIENT_SECRET'),
     ],
-
-    'sparkpost' => [
-        'secret' => env('SPARKPOST_SECRET'),
-    ],
-
-    'stripe' => [
-        'model' => Jrdn\DoApiWrapper\Laravel\User::class,
-        'key' => env('STRIPE_KEY'),
-        'secret' => env('STRIPE_SECRET'),
-    ],
-
 ];
