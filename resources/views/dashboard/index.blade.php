@@ -1,11 +1,5 @@
-<!DOCTYPE html>
+@extends('layout.master')
 
-<html lang="en">
-<head>
-    <title>Dashboard</title>
-</head>
-
-<body>
-Hello!
-</body>
-</html>
+@section('content')
+    <h1>Welcome to DigitalOcean DNS Wrapper</h1>
+@stop
