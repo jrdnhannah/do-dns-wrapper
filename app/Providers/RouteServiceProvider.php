@@ -21,7 +21,9 @@ class RouteServiceProvider extends ServiceProvider
      * @var string[]
      */
     private $routingFiles   = [
+        'auth',
         'oauth',
+        'dashboard',
     ];
 
     /**

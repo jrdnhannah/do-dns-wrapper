@@ -12,7 +12,8 @@
         "roave/security-advisories": "dev-master",
         "chrishemmings/oauth2-digitalocean": "dev-master",
         "fideloper/proxy": "^3.2",
-        "smoothphp/cqrs-es-framework-laravel": "dev-fix/check-event-store-enabled"
+        "smoothphp/cqrs-es-framework-laravel": "dev-fix/check-event-store-enabled",
+        "smoothphp/querybus": "^0.0.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
