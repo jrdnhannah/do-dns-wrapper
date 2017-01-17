@@ -12,6 +12,8 @@ use SmoothPhp\CommandBus\BaseCommand;
 final class RegisterNewUser extends BaseCommand
 {
     /** @var string */
+    private $userId;
+    /** @var string */
     private $email;
     /** @var string */
     private $password;
@@ -19,13 +21,23 @@ final class RegisterNewUser extends BaseCommand
     /**
      * RegisterNewUser constructor.
      *
+     * @param string $userId
      * @param string $email
      * @param string $password
      */
-    public function __construct(string $email, string $password)
+    public function __construct(string $userId, string $email, string $password)
     {
+        $this->userId = $userId;
         $this->email = $email;
         $this->password = $password;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUserId() : string
+    {
+        return $this->userId;
     }
 
     /**

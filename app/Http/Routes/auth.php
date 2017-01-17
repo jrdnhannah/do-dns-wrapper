@@ -8,6 +8,7 @@ $router->group(
     [
         'prefix'    =>  'auth',
         'namespace' =>  'Auth',
+        'middleware' => ['web'],
     ],
     function (Router $router) {
         $router->get(

@@ -6,8 +6,9 @@ use Illuminate\Routing\Router;
 
 $router->group(
     [
-        'prefix'    => 'dashboard',
-        'namespace' => 'Dashboard',
+        'prefix'        => 'dashboard',
+        'namespace'     => 'Dashboard',
+        'middleware'    => ['web'],
     ],
     function (Router $router) {
         $router->get(

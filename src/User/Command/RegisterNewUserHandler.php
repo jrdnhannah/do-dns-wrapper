@@ -36,6 +36,7 @@ final class RegisterNewUserHandler
     public function handle(RegisterNewUser $command) : void
     {
         $this->db->query()->table('users')->insert([
+            'id'        => $command->getUserId(),
             'email'     => $command->getEmail(),
             'password'  => $password = bcrypt($command->getPassword()),
         ]);
@@ -44,7 +45,7 @@ final class RegisterNewUserHandler
          * Log in if in web app (with sessions)
          */
         if ($this->auth instanceof SessionGuard) {
-            $this->auth->attempt(['email' => $command->getEmail(), 'password' => $password]);
+            $this->auth->loginUsingId($command->getUserId());
         }
     }
 }

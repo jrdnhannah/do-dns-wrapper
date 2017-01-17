@@ -8,6 +8,7 @@ $router->group(
     [
         'prefix'    =>  'oauth',
         'namespace' =>  'OAuth',
+        'middleware' => ['web'],
     ],
     function (Router $router) {
         $router->get('/request', [

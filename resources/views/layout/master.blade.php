@@ -5,7 +5,7 @@
         <title>{{ $title ?? 'DNS' }}</title>
 
         @include('layout.parts.meta')
-        @include('layout.parts.scripts')
+        @include('layout.parts.styles')
     </head>
     <body>
         <div class="container-fluid">

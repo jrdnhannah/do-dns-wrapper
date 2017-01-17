@@ -58,7 +58,7 @@ class RegisterController extends Controller
      */
     public function register(Registration $request) : Response
     {
-        $this->bus->execute(new RegisterNewUser(...array_values($request->only(['email', 'password']))));
+        $this->bus->execute(new RegisterNewUser($id = uuid(), ...array_values($request->only(['email', 'password']))));
 
         return redirect()->route('dashboard');
     }
